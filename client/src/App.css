@@ -1,15 +1,16 @@
 .showcase {
   position: relative;
-  display: grid;
+  display: flex;
   min-height: 100vh;
   min-height: 100svh;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   isolation: isolate;
-  place-items: center;
-  padding: 120px 28px 90px;
+  padding: 112px 32px 48px;
   background:
-    radial-gradient(ellipse at 51% 47%, rgba(35, 39, 82, 0.14), transparent 48%),
-    linear-gradient(180deg, rgba(7, 9, 18, 0.1), rgba(7, 9, 18, 0.26));
+    radial-gradient(ellipse at 50% 48%, rgba(47, 53, 107, 0.19), transparent 55%),
+    linear-gradient(180deg, rgba(7, 9, 18, 0.08), rgba(7, 9, 18, 0.28));
 }
 
 .showcase-background {
@@ -19,8 +20,8 @@
 .showcase-header {
   position: absolute;
   z-index: 2;
-  top: 28px;
-  left: 36px;
+  top: 25px;
+  left: 32px;
 }
 
 .showcase-brand {
@@ -36,8 +37,8 @@
 
 .showcase-brand-mark {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border: 1px solid rgba(197, 205, 255, 0.22);
   border-radius: 11px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.035));
@@ -55,194 +56,80 @@
 .native-bar-position {
   position: fixed;
   z-index: 5;
-  top: 24px;
-  right: 28px;
+  top: 20px;
+  right: 26px;
   display: flex;
-  width: min(580px, calc(100vw - 40px));
+  width: min(420px, calc(100vw - 32px));
   justify-content: flex-end;
   pointer-events: none;
 }
 
-.native-nav {
+.native-bar-position > * {
   max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.48);
-  color: #161821;
   pointer-events: auto;
-  will-change: width;
 }
 
-.native-nav button {
-  border-radius: 999px;
-  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
-}
-
-.native-nav button:hover {
-  background-color: rgba(255, 255, 255, 0.28) !important;
-}
-
-.native-nav button:focus-visible {
-  outline: 2px solid rgba(40, 52, 100, 0.72);
-  outline-offset: -3px;
-}
-
-.showcase-hero {
+.showcase-content {
   position: relative;
   z-index: 1;
   width: min(100%, 1100px);
-  margin-top: -12px;
-  text-align: center;
-  animation: hero-enter 900ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
-.showcase-eyebrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 27px;
-  color: rgba(205, 212, 242, 0.69);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+.spline-card {
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 78% 48%, rgba(52, 62, 128, 0.2), transparent 44%),
+    linear-gradient(125deg, rgba(10, 12, 23, 0.97), rgba(12, 14, 27, 0.84));
+  box-shadow:
+    0 32px 100px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.showcase-status-dot {
-  width: 6px;
-  height: 6px;
+.spline-loader {
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(199, 207, 255, 0.18);
+  border-top-color: rgba(199, 207, 255, 0.9);
   border-radius: 50%;
-  background: #a3ffc8;
-  box-shadow: 0 0 12px rgba(127, 255, 183, 0.85);
+  animation: spline-loader-spin 0.8s linear infinite;
 }
 
-.showcase-eyebrow-divider {
-  color: rgba(164, 176, 236, 0.5);
-}
-
-.showcase-hero h1 {
-  margin: 0;
-  color: #f2f3fc;
-  font-size: clamp(76px, 12.5vw, 168px);
-  font-weight: 600;
-  letter-spacing: -0.095em;
-  line-height: 0.83;
-  text-shadow: 0 12px 70px rgba(182, 190, 255, 0.13);
-}
-
-.showcase-hero h1 span {
-  color: transparent;
-  background: linear-gradient(110deg, #f3f4ff 6%, #bcc8ff 42%, #8f9cf5 74%, #d7c6ff 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.showcase-description {
-  max-width: 380px;
-  margin: 28px auto 0;
-  color: rgba(218, 222, 242, 0.63);
-  font-size: clamp(14px, 1.35vw, 16px);
-  font-weight: 400;
-  line-height: 1.8;
-}
-
-.showcase-scroll-cue {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 49px;
-  color: rgba(199, 207, 242, 0.52);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.17em;
-}
-
-.showcase-scroll-cue span {
-  width: 27px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(177, 191, 255, 0.8));
-}
-
-.showcase-coordinate {
-  position: absolute;
-  right: 36px;
-  bottom: 28px;
-  left: 36px;
-  display: flex;
-  justify-content: space-between;
-  color: rgba(186, 194, 226, 0.38);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.16em;
-}
-
-@keyframes hero-enter {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
+@keyframes spline-loader-spin {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .showcase {
-    padding: 116px 20px 80px;
+    min-height: 100svh;
+    align-items: flex-start;
+    padding: 104px 16px 24px;
   }
 
   .showcase-header {
-    top: 22px;
-    left: 20px;
+    top: 18px;
+    left: 16px;
   }
 
   .native-bar-position {
-    top: 16px;
-    right: 16px;
-    width: min(580px, calc(100vw - 32px));
+    top: 14px;
+    right: 12px;
+    width: min(420px, calc(100vw - 24px));
   }
 
-  .showcase-hero {
-    margin-top: 0;
+  .showcase-content {
+    margin: auto 0;
   }
 
-  .showcase-eyebrow {
-    gap: 7px;
-    margin-bottom: 23px;
-    font-size: 8px;
-    letter-spacing: 0.14em;
-  }
-
-  .showcase-hero h1 {
-    font-size: clamp(70px, 17vw, 108px);
-  }
-
-  .showcase-description {
-    max-width: 300px;
-  }
-
-  .showcase-coordinate {
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    font-size: 8px;
-  }
-
-  .native-nav .px-6 {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  .native-nav button {
-    padding-right: 7px !important;
-    padding-left: 7px !important;
-    font-size: 12px !important;
+  .spline-card {
+    height: 650px;
+    border-radius: 16px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .showcase-hero {
-    animation: none;
+  .spline-loader {
+    animation-duration: 2s;
   }
 }
