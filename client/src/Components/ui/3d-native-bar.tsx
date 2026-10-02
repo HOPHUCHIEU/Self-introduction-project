@@ -49,6 +49,25 @@ export function PillBase() {
   }, []);
 
   useEffect(() => {
+    const sections = NAV_ITEMS.map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => section !== null);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visibleSection) setActiveSection(visibleSection.target.id);
+      },
+      { threshold: [0.25, 0.5, 0.75], rootMargin: "-15% 0px -15% 0px" },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const width = expanded
       ? Math.min(EXPANDED_WIDTH, Math.max(COLLAPSED_WIDTH, viewportWidth - 32))
       : COLLAPSED_WIDTH;
@@ -68,6 +87,14 @@ export function PillBase() {
   const selectSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setExpanded(false);
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "start",
+    });
+    window.history.replaceState(null, "", `#${sectionId}`);
   };
 
   const activeItem = NAV_ITEMS.find((item) => item.id === activeSection) ?? NAV_ITEMS[0];
@@ -185,7 +212,7 @@ export function PillBase() {
             <motion.button
               key="collapsed"
               type="button"
-              aria-expanded={false}
+              aria-expanded={expanded}
               onClick={open}
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}

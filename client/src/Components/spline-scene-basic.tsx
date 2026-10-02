@@ -35,6 +35,7 @@ export function SplineSceneBasic() {
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="h-full w-full"
+            trackPointerOutside
           />
         </div>
       </div>
