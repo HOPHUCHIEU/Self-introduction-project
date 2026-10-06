@@ -16,9 +16,19 @@ import {
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import clinicOverview from "./assets/project-clinic.svg";
+// import clinicOverview from "./assets/project-clinic.svg";
 import diagnosticOverview from "./assets/project-diagnostic.svg";
 import patientOverview from "./assets/project-patients.svg";
+import landingpage from "./assets/landingpage.png";
+import qllichlamviec from "./assets/qllichlamviec.jpg";
+import dklichhen from "./assets/dklichhen.jpg";
+import chatbotAI from "./assets/chatbotAI.jpg";
+import dasb from "./assets/dasb.jpg";
+import AIxinchao from "./assets/AIxinchao.jpg";
+import AIluachon from "./assets/AIluachon.jpg";
+import datlich from "./assets/datlich.jpg";
+import datlichkham from "./assets/datlichkham.jpg";
+
 import "./App.css";
 
 type Project = {
@@ -32,28 +42,60 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "clinic-management",
+    id: "diagnostic-iq",
     number: "01",
-    title: "Clinic Management System",
-    description: "Hệ thống quản lý phòng khám",
+    title: "SMART CLINIC MANAGEMENT SYSTEM",
+    description: "Hệ thống quản lý phòng khám và AI hỗ trợ chuẩn đoán bệnh và hỗ trợ đặt lịch thông minh",
     icon: Sparkles,
     details: [
       {
-        image: clinicOverview,
-        caption: "Ảnh minh họa màn hình tổng quan quản lý phòng khám.",
+        image: landingpage,
+        caption: "Đây là toàn bộ landing page của hệ thống quản lý phòng khám thông minh",
+      },
+      {
+        image: qllichlamviec,
+        caption: "Đây là hình ảnh minh họa màn hình quản lý lịch làm việc của bác sĩ trong hệ thống quản lý phòng khám thông minh",
+      },
+      {
+        image: dklichhen,
+        caption: "Đây là hình ảnh thông tin của bác sĩ và đặt lịch hẹn khám bệnh của bệnh nhân trong hệ thống quản lý phòng khám thông minh",
+      },
+      {
+        image: dklichhen,
+        caption: "Đây là hình ảnh thông tin của bác sĩ và đặt lịch hẹn khám bệnh của bệnh nhân trong hệ thống quản lý phòng khám thông minh",
+      },
+      {
+        image: chatbotAI,
+        caption: "Đây là hình ảnh giao diện chatbot hỗ trợ bệnh nhân các vấn đề về bệnhtrong hệ thống quản lý phòng khám thông minh",
       },
     ],
   },
   {
-    id: "diagnostic-iq",
+    id: "clinic-management",
     number: "02",
-    title: "Diagnostic_IQ",
-    description: "Hệ thống chẩn đoán thông minh",
+    title: "CLINIC MANAGEMENT SYSTEM",
+    description: "Hệ thống quản lý phòng khám và AI hỗ trợ chuẩn đoán bệnh",
     icon: Zap,
     details: [
       {
-        image: diagnosticOverview,
-        caption: "Ảnh minh họa giao diện phân tích và hỗ trợ chẩn đoán.",
+        image: dasb,
+        caption: "Đây là hình ảnh dashboard tổng quan hệ thống quản lý phòng khám thống kê",
+      },
+      {
+        image: datlichkham,
+        caption: "Đây là hình ảnh chọn ngày và giờ khám bệnh của bác sĩ trong hệ thống",
+      },
+      {
+        image: datlich,
+        caption: "Đây là hình ảnh đặt lịch hẹn khám trực tiếp hay khám online bệnh nhân trong hệ thống",
+      },
+      {
+        image: AIxinchao,
+        caption: "Đây là chatbot hỏi bệnh nhân và hỏi bệnh nhân cần hỗ trợ gì",
+      },
+      {
+        image: AIluachon,
+        caption: "AI đưa ra các lựa chọn cho bệnh nhân để chuẩn đoán bệnh và đưa ra các phương pháp điều trị",
       },
     ],
   },
@@ -67,6 +109,10 @@ const projects: Project[] = [
       {
         image: patientOverview,
         caption: "Ảnh minh họa màn hình quản lý bệnh nhân và lịch khám.",
+      },
+      {
+        image: landingpage,
+        caption: "Ảnh minh họa giao diện quản lý bệnh nhân.",
       },
     ],
   },
@@ -299,7 +345,7 @@ export default function App() {
                 </header>
                 <div className="project-detail-list">
                   {selectedProject.details.map((detail, index) => (
-                    <figure className="project-detail" key={detail.image}>
+                    <figure className="project-detail" key={`${detail.image}-${index}`}>
                       <img
                         src={detail.image}
                         alt={`${selectedProject.title} — hình ${index + 1}`}
