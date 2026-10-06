@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171B32"/><stop offset="1" stop-color="#0B0E1A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#A8B5FF"/><stop offset="1" stop-color="#8B72E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="22" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="673" rx="21" stroke="#AEBBFF" stroke-opacity=".18"/>
+  <rect x="25" y="25" width="1150" height="62" rx="14" fill="#0D1020" stroke="#B6C1FF" stroke-opacity=".1"/>
+  <rect x="47" y="40" width="32" height="32" rx="10" fill="url(#accent)"/>
+  <path d="M63 47v18m-9-9h18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="94" y="61" fill="#F1F3FF" font-family="Arial,sans-serif" font-size="16" font-weight="700">CareDesk</text>
+  <text x="52" y="137" fill="#F3F4FF" font-family="Arial,sans-serif" font-size="25" font-weight="700">Quản lý bệnh nhân</text>
+  <text x="52" y="163" fill="#9099B8" font-family="Arial,sans-serif" font-size="13">Hồ sơ, lịch khám và thông tin vận hành tại một nơi</text>
+  <rect x="52" y="190" width="1096" height="76" rx="14" fill="#14182A" stroke="#B6C1FF" stroke-opacity=".12"/>
+  <g font-family="Arial,sans-serif">
+    <text x="76" y="220" fill="#929BB8" font-size="11">TỔNG BỆNH NHÂN</text><text x="76" y="247" fill="#F0F2FF" font-size="22" font-weight="700">1,284</text>
+    <text x="330" y="220" fill="#929BB8" font-size="11">LỊCH HẸN HÔM NAY</text><text x="330" y="247" fill="#F0F2FF" font-size="22" font-weight="700">36</text>
+    <text x="594" y="220" fill="#929BB8" font-size="11">PHÒNG KHÁM</text><text x="594" y="247" fill="#F0F2FF" font-size="22" font-weight="700">08</text>
+    <rect x="920" y="210" width="198" height="38" rx="10" fill="#929FFF"/>
+    <path d="M940 229h15m-7.5-7.5v15" stroke="#11152B" stroke-width="2" stroke-linecap="round"/>
+    <text x="966" y="234" fill="#101426" font-size="12" font-weight="600">Thêm bệnh nhân</text>
+  </g>
+  <rect x="52" y="285" width="1096" height="337" rx="15" fill="#121626" stroke="#B6C1FF" stroke-opacity=".12"/>
+  <text x="78" y="321" fill="#E9ECFC" font-family="Arial,sans-serif" font-size="16" font-weight="600">Danh sách bệnh nhân</text>
+  <rect x="793" y="301" width="329" height="37" rx="9" fill="#0D1020" stroke="#B6C1FF" stroke-opacity=".12"/>
+  <circle cx="812" cy="319" r="6" stroke="#8F99BC" stroke-width="1.5"/>
+  <path d="m817 324 5 5" stroke="#8F99BC" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="833" y="324" fill="#717B9B" font-family="Arial,sans-serif" font-size="11">Tìm theo tên hoặc mã hồ sơ</text>
+  <g font-family="Arial,sans-serif" font-size="11" fill="#828BAA">
+    <text x="80" y="372">BỆNH NHÂN</text><text x="430" y="372">MÃ HỒ SƠ</text><text x="611" y="372">LỊCH KHÁM GẦN NHẤT</text><text x="883" y="372">TRẠNG THÁI</text><text x="1051" y="372">THAO TÁC</text>
+  </g>
+  <path d="M77 388h1046" stroke="#B6C1FF" stroke-opacity=".1"/>
+  <g font-family="Arial,sans-serif">
+    <g fill="#E6E9F8" font-size="12"><text x="124" y="422">Nguyễn Minh Anh</text><text x="430" y="422">BN-2026-0148</text><text x="611" y="422">06/10/2026 · 09:00</text><text x="1059" y="422">•••</text></g>
+    <g fill="#9AA4C1" font-size="11"><text x="124" y="441">Nữ · 29 tuổi</text><text x="430" y="441">Cơ sở trung tâm</text></g>
+    <g fill="#E6E9F8" font-size="12"><text x="124" y="482">Trần Hoàng Nam</text><text x="430" y="482">BN-2026-0147</text><text x="611" y="482">06/10/2026 · 09:30</text><text x="1059" y="482">•••</text></g>
+    <g fill="#9AA4C1" font-size="11"><text x="124" y="501">Nam · 42 tuổi</text><text x="430" y="501">Cơ sở phía Đông</text></g>
+    <g fill="#E6E9F8" font-size="12"><text x="124" y="542">Lê Thu Hà</text><text x="430" y="542">BN-2026-0146</text><text x="611" y="542">07/10/2026 · 10:00</text><text x="1059" y="542">•••</text></g>
+    <g fill="#9AA4C1" font-size="11"><text x="124" y="561">Nữ · 35 tuổi</text><text x="430" y="561">Cơ sở trung tâm</text></g>
+    <g fill="#E6E9F8" font-size="12"><text x="124" y="602">Phạm Gia Bảo</text><text x="430" y="602">BN-2026-0145</text><text x="611" y="602">08/10/2026 · 14:30</text><text x="1059" y="602">•••</text></g>
+    <g fill="#9AA4C1" font-size="11"><text x="124" y="621">Nam · 51 tuổi</text><text x="430" y="621">Cơ sở phía Tây</text></g>
+  </g>
+  <g>
+    <circle cx="99" cy="426" r="15" fill="#9AABFF" fill-opacity=".18"/><circle cx="99" cy="486" r="15" fill="#81DABD" fill-opacity=".16"/>
+    <circle cx="99" cy="546" r="15" fill="#F4C685" fill-opacity=".14"/><circle cx="99" cy="606" r="15" fill="#D7A5F2" fill-opacity=".14"/>
+    <path d="M77 456h1046M77 516h1046M77 576h1046" stroke="#B6C1FF" stroke-opacity=".08"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="10">
+    <rect x="883" y="407" width="86" height="23" rx="11" fill="#81DABD" fill-opacity=".12"/><text x="900" y="423" fill="#9DE7C9">Đã xác nhận</text>
+    <rect x="883" y="467" width="86" height="23" rx="11" fill="#F4C685" fill-opacity=".12"/><text x="899" y="483" fill="#F2CF9E">Đang chờ</text>
+    <rect x="883" y="527" width="86" height="23" rx="11" fill="#9AABFF" fill-opacity=".12"/><text x="900" y="543" fill="#B6C1FF">Tái khám</text>
+    <rect x="883" y="587" width="86" height="23" rx="11" fill="#81DABD" fill-opacity=".12"/><text x="900" y="603" fill="#9DE7C9">Đã xác nhận</text>
+  </g>
+</svg>

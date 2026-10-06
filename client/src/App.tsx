@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import CodeBackground from "./Components/ui/code-background";
 import { PillBase } from "./Components/ui/3d-native-bar";
 import { SplineSceneBasic } from "@/Components/spline-scene-basic";
@@ -11,10 +13,86 @@ import {
   Mail,
   Sparkles,
   Zap,
+  X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import clinicOverview from "./assets/project-clinic.svg";
+import diagnosticOverview from "./assets/project-diagnostic.svg";
+import patientOverview from "./assets/project-patients.svg";
 import "./App.css";
 
+type Project = {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  details: { image: string; caption: string }[];
+};
+
+const projects: Project[] = [
+  {
+    id: "clinic-management",
+    number: "01",
+    title: "Clinic Management System",
+    description: "Hệ thống quản lý phòng khám",
+    icon: Sparkles,
+    details: [
+      {
+        image: clinicOverview,
+        caption: "Ảnh minh họa màn hình tổng quan quản lý phòng khám.",
+      },
+    ],
+  },
+  {
+    id: "diagnostic-iq",
+    number: "02",
+    title: "Diagnostic_IQ",
+    description: "Hệ thống chẩn đoán thông minh",
+    icon: Zap,
+    details: [
+      {
+        image: diagnosticOverview,
+        caption: "Ảnh minh họa giao diện phân tích và hỗ trợ chẩn đoán.",
+      },
+    ],
+  },
+  {
+    id: "patient-clinic-management",
+    number: "03",
+    title: "Hệ thống quản lý bệnh nhân và phòng khám",
+    description: "Hệ thống quản lý và vận hành phòng khám",
+    icon: Layers3,
+    details: [
+      {
+        image: patientOverview,
+        caption: "Ảnh minh họa màn hình quản lý bệnh nhân và lịch khám.",
+      },
+    ],
+  },
+];
+
 export default function App() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const ActiveProjectIcon = selectedProject?.icon ?? Sparkles;
+
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedProject(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedProject]);
+
   return (
     <main className="showcase">
       <CodeBackground className="showcase-background" />
@@ -61,33 +139,42 @@ export default function App() {
       </section>
 
       {/*  The Problem Section */}
-      <section className="landing-section problem-section" id="Project" aria-labelledby="Project-title">
+      <section className="landing-section problem-section" id="problem" aria-labelledby="problem-title">
         <div className="section-inner problem-layout">
           <div className="problem-intro">
-            <p className="section-kicker"><span /> THE CHALLENGE <b>01 / 03</b></p>
-            <h2 id="Project-title">Project for me<br /> <em></em></h2>
+            <p className="section-kicker"><span /> Các dự án đã thực hiện <b>01 / 03</b></p>
+            <h2 id="problem-title">Project for me<br /> <em></em></h2>
             <p className="section-lead">
               Đây là dự án của tôi đã làm nhóm và cá nhân và đã đưa vào hoạt động
             </p>
           </div>
           <div className="problem-list">
-            <article className="problem-item">
-              <span className="item-number">01</span>
-              <div><h3>Too much noise</h3><p>Visual clutter makes it harder for people to find what matters.</p></div>
-              <Sparkles size={19} />
-            </article>
-            <article className="problem-item">
-              <span className="item-number">02</span>
-              <div><h3>Interactions without intention</h3><p>Motion should guide a user, not distract them from the task.</p></div>
-              <Zap size={19} />
-            </article>
-            <article className="problem-item">
-              <span className="item-number">03</span>
-              <div><h3>Design and technology out of sync</h3><p>A great concept needs a reliable, fast, accessible implementation.</p></div>
-              <Layers3 size={19} />
-            </article>
+            {projects.map((project) => {
+              const Icon = project.icon;
+
+              return (
+                <button
+                  className="problem-item"
+                  key={project.id}
+                  type="button"
+                  aria-haspopup="dialog"
+                  aria-label={`Xem chi tiết dự án ${project.title}`}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <span className="project-card-top">
+                    <span className="item-number">{project.number}</span>
+                    <span className="project-icon"><Icon size={19} /></span>
+                  </span>
+                  <span className="project-card-copy">
+                    <h3 className="project-card-title">{project.title}</h3>
+                    <span className="project-card-description">{project.description}</span>
+                  </span>
+                  <span className="project-card-action">XEM DỰ ÁN <ArrowUpRight size={14} /></span>
+                </button>
+              );
+            })}
           </div>
-          <div className="section-index">01 <span>—</span> THE PROBLEM</div>
+          {/* <div className="section-index">01 <span>—</span> THE PROBLEM</div> */}
         </div>
       </section>
 
@@ -179,6 +266,53 @@ export default function App() {
 
       {/* footer */}
 
+      {selectedProject &&
+        createPortal(
+          <div
+            className="project-modal-backdrop"
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setSelectedProject(null);
+            }}
+          >
+            <section
+              className="project-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-modal-title"
+            >
+              <button
+                className="project-modal-close"
+                type="button"
+                aria-label="Đóng chi tiết dự án"
+                onClick={() => setSelectedProject(null)}
+              >
+                <X size={19} />
+              </button>
+              <div className="project-modal-scroll">
+                <header className="project-modal-header">
+                  <span className="project-modal-icon">
+                    <ActiveProjectIcon size={21} />
+                  </span>
+                  <p className="section-kicker"><span /> DỰ ÁN {selectedProject.number}</p>
+                  <h2 id="project-modal-title">{selectedProject.title}</h2>
+                  <p>{selectedProject.description}</p>
+                </header>
+                <div className="project-detail-list">
+                  {selectedProject.details.map((detail, index) => (
+                    <figure className="project-detail" key={detail.image}>
+                      <img
+                        src={detail.image}
+                        alt={`${selectedProject.title} — hình ${index + 1}`}
+                      />
+                      <figcaption>{detail.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>,
+          document.body,
+        )}
     </main>
   );
 }
