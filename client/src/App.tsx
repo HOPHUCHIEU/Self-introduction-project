@@ -16,9 +16,6 @@ import {
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-// import clinicOverview from "./assets/project-clinic.svg";
-// import diagnosticOverview from "./assets/project-diagnostic.svg";
-import patientOverview from "./assets/project-patients.svg";
 import landingpage from "./assets/landingpage.png";
 import qllichlamviec from "./assets/qllichlamviec.jpg";
 import dklichhen from "./assets/dklichhen.jpg";
@@ -179,12 +176,12 @@ export default function App() {
             Tôi là một lập trình viên phần mềm, tôi thích tạo ra những trải nghiệm kỹ thuật số tuyệt vời và mang lại giá trị cho người dùng.
           </p>
           <div className="home-actions">
-            <a className="button button-primary" href="#solution">
+            <a className="button button-primary" href="#progress">
               Xem chi tiết về tôi <ArrowRight size={16} />
             </a>
             <a className="text-link" href="#contact">Contact <ArrowUpRight size={15} /></a>
           </div>
-          <a className="scroll-hint" href="#problem">
+          <a className="scroll-hint" href="#projects">
             <span className="scroll-hint-icon"><ArrowDown size={14} /></span>
             SCROLL TO EXPLORE
           </a>
@@ -196,12 +193,12 @@ export default function App() {
         <div className="home-side-note" aria-hidden="true">DESIGNING THE NEXT DIGITAL MOMENT</div>
       </section>
 
-      {/*  The Problem Section */}
-      <section className="landing-section problem-section" id="problem" aria-labelledby="problem-title">
+      {/*  The Projects Section */}
+      <section className="landing-section problem-section" id="projects" aria-labelledby="projects-title">
         <div className="section-inner problem-layout">
           <div className="problem-intro">
             <p className="section-kicker"><span /> Các dự án đã thực hiện <b>01 / 03</b></p>
-            <h2 id="problem-title">Project for me<br /> <em></em></h2>
+            <h2 id="projects-title">Project for me<br /> <em></em></h2>
             <p className="section-lead">
               Đây là dự án của tôi đã làm nhóm và cá nhân và đã đưa vào hoạt động
             </p>
@@ -236,13 +233,13 @@ export default function App() {
         </div>
       </section>
 
-      {/*  The Solution Section */}
-      <section className="landing-section solution-section" id="solution" aria-labelledby="solution-title">
+      {/*  The progress Section */}
+      <section className="landing-section solution-section" id="progress" aria-labelledby="progress-title">
         <div className="section-inner">
           <div className="solution-heading">
             <div>
               <p className="section-kicker"><span /> A BETTER WAY TO BUILD <b>02 / 03</b></p>
-              <h2 id="solution-title">Clarity first.<br /><em>Magic follows.</em></h2>
+              <h2 id="progress-title">Clarity first.<br /><em>Magic follows.</em></h2>
             </div>
             <p className="section-lead">
               A considered process turns ambitious ideas into useful,
