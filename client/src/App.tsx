@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 // import clinicOverview from "./assets/project-clinic.svg";
-import diagnosticOverview from "./assets/project-diagnostic.svg";
+// import diagnosticOverview from "./assets/project-diagnostic.svg";
 import patientOverview from "./assets/project-patients.svg";
 import landingpage from "./assets/landingpage.png";
 import qllichlamviec from "./assets/qllichlamviec.jpg";
@@ -28,6 +28,10 @@ import AIxinchao from "./assets/AIxinchao.jpg";
 import AIluachon from "./assets/AIluachon.jpg";
 import datlich from "./assets/datlich.jpg";
 import datlichkham from "./assets/datlichkham.jpg";
+import thongke from "./assets/thongke.jpg";
+import doanhthu from "./assets/doanhthu.jpg";
+import tiepnhanbn from "./assets/tiepnhabn.jpg";
+import qlsanpham from "./assets/qlsanpham.jpg";
 
 import "./App.css";
 
@@ -107,12 +111,20 @@ const projects: Project[] = [
     icon: Layers3,
     details: [
       {
-        image: patientOverview,
-        caption: "Ảnh minh họa màn hình quản lý bệnh nhân và lịch khám.",
+        image: thongke,
+        caption: "Hình ảnh này là giao diện thống kê tổng của phòng khám, bao gồm số lượng bệnh nhân, doanh thu, số lượng sản phẩm và các thông tin khác.",
       },
       {
-        image: landingpage,
-        caption: "Ảnh minh họa giao diện quản lý bệnh nhân.",
+        image: doanhthu,
+        caption: "Hình ảnh này là giao diện thống kê doanh thu theo ngày của phòng khám",
+      },
+      {
+        image: tiepnhanbn,
+        caption: "Hình ảnh này là giao diện tiếp nhận bệnh nhân và quản lý thông tin bệnh nhân trong hệ thống quản lý phòng khám",
+      },
+      {
+        image: qlsanpham,
+        caption: "Hình ảnh này là giao diện quản lý sản phẩm như thuốc và các chuyên khoa trong hệ thống quản lý phòng khám.",
       },
     ],
   },
